@@ -1,10 +1,14 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { T } from '@admiral-ds/react-ui';
 
-const Title = styled.h1`
+const Title = styled(T)`
   color: red;
-  font-size: 50px;
-`
+`;
 
 export default function Home() {
-  return <Title>My page</Title>
+  return (
+    <>
+      <Title font="Main/XXL">My page</Title>
+    </>
+  );
 }
