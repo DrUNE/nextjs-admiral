@@ -1,5 +1,5 @@
-const modulesToTranspile = ['@admiral-ds/react-ui','@admiral-ds/flags'];
-const withTM = require('next-transpile-modules')(modulesToTranspile)
+const modulesToTranspile = ['@admiral-ds/react-ui', '@admiral-ds/flags'];
+const withTM = require('next-transpile-modules')(modulesToTranspile);
 
 // used by JSON stringify to fix circular references
 const getCircularReplacer = () => {
@@ -22,29 +22,29 @@ const nextConfig = {
     styledComponents: true,
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // For debug 
+    // For debug
     // console.log(`>>>> ${JSON.stringify(defaultLoaders, getCircularReplacer(), 2)}`);
 
     config.module.rules.unshift({
-      test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-      use: {
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: '[name].[ext]',
-        },
-      },
-    },)
+      test: /\.(eot|woff|woff2|ttf|png|jpg|gif)$/i,
+      type: 'asset/resource',
+      dependency: { not: ['url'] },
+    });
 
     config.module.rules.unshift({
       test: /\.svg$/,
-      use: [{ loader: '@svgr/webpack', options: { dimensions: false, svgProps: { focusable: '{false}' } } }],
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: { dimensions: false, svgProps: { focusable: '{false}' } },
+        },
+        'url-loader',
+      ],
     });
 
     // Important: return the modified config
-    return config
+    return config;
   },
+};
 
-}
-
-module.exports = withTM(nextConfig)
+module.exports = withTM(nextConfig);
