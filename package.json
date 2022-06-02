@@ -1,5 +1,12 @@
 {
-  "private": true,
+  "version": "1.0.0",
+  "description": "Documentation site for Admiral design system 2.1",
+  "keywords": [],
+  "author": "",
+  "license": "See license in ./LICENSE",
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
