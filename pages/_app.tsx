@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { DARK_THEME } from '@admiral-ds/react-ui';
+import { LIGHT_THEME } from '@admiral-ds/react-ui';
 import '@admiral-ds/fonts/VTBGroupUI.css';
 
 const GlobalStyle = createGlobalStyle`
@@ -14,7 +14,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={DARK_THEME}>
+      <ThemeProvider theme={LIGHT_THEME}>
         <Component {...pageProps} />
       </ThemeProvider>
     </>
