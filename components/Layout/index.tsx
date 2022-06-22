@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { T } from '@admiral-ds/react-ui';
 import styled from 'styled-components';
 import { TopBar } from 'components/TopBar';
@@ -7,6 +7,7 @@ import { MenuToggleButton } from 'components/TopBar/MenuToggleButon';
 import { NavPanel } from 'components/NavPanel';
 import { device } from 'components/Layout/device';
 import { useMediaQuery } from 'components/Layout/useMediaQuery';
+import { NavPanelButton } from 'components/NavPanel/NavPanelButton';
 
 const MobileContainer = styled.div`
   position: relative;
@@ -66,8 +67,17 @@ const MobileContent = styled.div`
   flex: 1 1 100%;
 `;
 
+const renderButtons = () => {
+  return (
+    <>
+      <NavPanelButton text={'Основы'} />
+      <NavPanelButton text={'Компоненты'} />
+    </>
+  );
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
+  // const router = useRouter();
   const isDesktop = useMediaQuery(device.laptop);
   const [isMenuOpen, setIsMenuOpen] = React.useState(true);
   return !isDesktop ? (
@@ -83,11 +93,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {isMenuOpen && (
           <>
             <Overlay show={isMenuOpen} />
-            <MobilePositionNavPanel>
-              <T color={'Special/Dark Static Neutral 90'} font={'Header/H6'}>
-                page: {router.pathname}
-              </T>
-            </MobilePositionNavPanel>
+            <MobilePositionNavPanel isMobile={true}>{renderButtons()}</MobilePositionNavPanel>
           </>
         )}
       </MobileContent>
@@ -95,7 +101,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   ) : (
     <DesktopContainer>
       {children}
-      <DesktopPositionNavPanel>page: {router.pathname}</DesktopPositionNavPanel>
+      <DesktopPositionNavPanel>{renderButtons()}</DesktopPositionNavPanel>
     </DesktopContainer>
   );
 }

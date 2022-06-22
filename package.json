@@ -5,7 +5,7 @@
   "author": "",
   "license": "See license in ./LICENSE",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "scripts": {
     "dev": "next",
@@ -23,9 +23,9 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.2.1",
-    "@types/node": "15.0.0",
-    "@types/react": "17.0.4",
-    "@types/react-dom": "17.0.3",
+    "@types/node": "^16.0.0",
+    "@types/react": "^17.0.4",
+    "@types/react-dom": "^17.0.3",
     "@types/styled-components": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "eslint-config-next": "12.1.6",
