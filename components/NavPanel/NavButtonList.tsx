@@ -2,17 +2,20 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { NavPanelButton } from 'components/NavPanel/NavPanelButton';
+import { ReactComponent as StarOutline } from '@admiral-ds/icons/build/system/StarOutline.svg';
+import { ReactComponent as StarSolid } from '@admiral-ds/icons/build/system/StarSolid.svg';
 
 const ROUTE_LIST_MODEL = [
   {
     href: '/documentation/button',
     text: 'Основы',
+    icon: ({ isActive }: { isActive?: boolean }) => (isActive ? <StarSolid /> : <StarOutline />),
   },
   {
     href: '/documentation/icon',
     text: 'Компоненты',
   },
-] as const;
+] as Array<{ href: string; text?: string; icon?: React.FunctionComponent<{ isActive?: boolean }> }>;
 
 export const NavButtonList = () => {
   const { asPath } = useRouter();
@@ -25,9 +28,9 @@ export const NavButtonList = () => {
 
   return (
     <>
-      {ROUTE_LIST_MODEL.map(({ href, text }, index) => (
+      {ROUTE_LIST_MODEL.map(({ href, text, icon }, index) => (
         <Link key={href} href={href} passHref>
-          <NavPanelButton text={text} isActive={index === activeIndex} />
+          <NavPanelButton text={text} isActive={index === activeIndex} icon={icon} />
         </Link>
       ))}
     </>
