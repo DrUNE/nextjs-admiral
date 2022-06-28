@@ -19,6 +19,8 @@ const NavPanelButtonContainer = styled.a<{ isActive?: boolean }>`
   &:active {
     background-color: ${(p) => p.theme.color['Opacity/Dark Static Press']};
   }
+
+  transition: background 0.3s ease;
 `;
 
 const TextContainer = styled.div`
