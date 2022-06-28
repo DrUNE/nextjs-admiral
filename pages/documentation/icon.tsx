@@ -1,5 +1,6 @@
 import { T } from '@admiral-ds/react-ui';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import FaceIDOutlineUrl, {
   ReactComponent as FaceIDOutlineComponent,
@@ -23,7 +24,7 @@ export default function IconPage() {
     <Layout>
       <Title font="Main/XXL">My page</Title>
       <FaceIDOutline width={100} />
-      <img src={FaceIDOutlineUrl} width={100} />
+      <Image src={FaceIDOutlineUrl} width={100} height={100} layout="fixed" alt="Just for image demo" />
       <h1 className="title">
         Read{' '}
         <Link href="/documentation/button">

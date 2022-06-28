@@ -68,7 +68,7 @@ const MobileContent = styled.div`
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const isDesktop = useMediaQuery(device.laptop);
-  const [isMenuOpen, setIsMenuOpen] = React.useState(true);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return !isDesktop ? (
     <MobileContainer>
       <PositionedTopBar>

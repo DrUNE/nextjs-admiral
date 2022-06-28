@@ -35,7 +35,7 @@ const NavButtonContainer = styled.div<{ isMobile?: boolean }>`
 export type NavPanelProps = {
   isMobile?: boolean;
 };
-export const NavPanel: React.FC<NavPanelProps> = ({ children, isMobile, ...props }) => {
+export const NavPanel = ({ children, isMobile, ...props }: React.PropsWithChildren<NavPanelProps>) => {
   return (
     <NavPanelContainer {...props}>
       {!isMobile && (
