@@ -26,7 +26,7 @@ const nextConfig = {
     // console.log(`>>>> ${JSON.stringify(defaultLoaders, getCircularReplacer(), 2)}`);
 
     config.module.rules.unshift({
-      test: /\.(eot|woff|woff2|ttf|png|jpg|gif)$/i,
+      test: /\.(eot|woff|woff2|ttf|otf|png|jpg|gif)$/i,
       type: 'asset/resource',
       dependency: { not: ['url'] },
     });
