@@ -3,8 +3,8 @@ import { Layout } from 'components/Layout';
 import { H1 } from 'components/H1';
 import { TabProps } from '@admiral-ds/react-ui';
 import { TabContentPresenter } from 'components/TabContentPresenter';
-import { OverviewTabContent } from 'pages/documentation/typography/tabs/OverviewTabContent';
-import { UseCaseTabContent } from 'pages/documentation/typography/tabs/UseCaseTabContent';
+import { OverviewTabContent } from 'components/pages/typography/tabs/OverviewTabContent';
+import { UseCaseTabContent } from 'components/pages/typography/tabs/UseCaseTabContent';
 import { Tabs } from 'components/Tabs';
 
 const tabs = [
