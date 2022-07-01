@@ -8,6 +8,18 @@ import { device } from 'components/Layout/device';
 import { useMediaQuery } from 'components/Layout/useMediaQuery';
 import { NavButtonList } from 'components/NavPanel/NavButtonList';
 
+export const DesktopContainer = styled.div`
+  position: relative;
+  background-color: ${(p) => p.theme.color['Neutral/Neutral 05']};
+  height: 100vh;
+  overflow-y: auto;
+  padding: 0 60px 0 348px;
+`;
+export const DesktopContent = styled.main`
+  margin: 0 auto;
+  padding: 40px 0;
+  max-width: 1195px;
+`;
 const MobileContainer = styled.div`
   position: relative;
   background-color: ${(p) => p.theme.color['Neutral/Neutral 05']};
@@ -17,14 +29,6 @@ const MobileContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-`;
-
-const DesktopContainer = styled.div`
-  position: relative;
-  background-color: ${(p) => p.theme.color['Neutral/Neutral 05']};
-  height: 100vh;
-  overflow-y: auto;
-  padding: 0 60px 0 348px;
 `;
 
 const Overlay = styled.div<{ show: boolean }>`
@@ -64,6 +68,7 @@ const DesktopPositionNavPanel = styled(NavPanel)`
 const MobileContent = styled.div`
   position: relative;
   flex: 1 1 100%;
+  padding: 40px 16px;
 `;
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -91,7 +96,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </MobileContainer>
   ) : (
     <DesktopContainer>
-      {children}
+      <DesktopContent>{children}</DesktopContent>
       <DesktopPositionNavPanel>
         <NavButtonList />
       </DesktopPositionNavPanel>

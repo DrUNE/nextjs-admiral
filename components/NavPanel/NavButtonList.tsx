@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { NavPanelButton } from 'components/NavPanel/NavPanelButton';
 import { ReactComponent as StarOutline } from '@admiral-ds/icons/build/system/StarOutline.svg';
 import { ReactComponent as StarSolid } from '@admiral-ds/icons/build/system/StarSolid.svg';
+import { ReactComponent as TypographyOutline } from '@admiral-ds/icons/build/category/TypographyOutline.svg';
+import { ReactComponent as TypographySolid } from '@admiral-ds/icons/build/category/TypographySolid.svg';
 
 const ROUTE_LIST_MODEL = [
   {
@@ -14,6 +16,11 @@ const ROUTE_LIST_MODEL = [
   {
     href: '/documentation/icon',
     text: 'Компоненты',
+  },
+  {
+    href: '/documentation/typography',
+    text: 'Типографика',
+    icon: ({ isActive }: { isActive?: boolean }) => (isActive ? <TypographySolid /> : <TypographyOutline />),
   },
 ] as Array<{ href: string; text?: string; icon?: React.FunctionComponent<{ isActive?: boolean }> }>;
 

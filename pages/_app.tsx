@@ -7,14 +7,15 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    background-color: #E5E5E5;
   }
 `;
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={LIGHT_THEME}>
+        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
